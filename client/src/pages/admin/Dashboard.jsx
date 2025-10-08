@@ -1,6 +1,7 @@
 import React, { use, useEffect, useState } from 'react'
 import { assets, dashboard_data } from '../../assets/assets'
 import Comments from './Comments'
+import BlogTableItem from '../../components/admin/BlogTableItem'
 
 const Dashboard = () => {
     const [ dashboardData, setDashboard] = useState({
@@ -68,7 +69,12 @@ const Dashboard = () => {
 
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    {dashboardData.recentBlogs.map((blog, index) => {
+                        return <BlogTableItem key={blog._id} blog={blog}
+                        fetchBlogs={fetchDashboard} index={index + 1} />
+                    })}
+                </tbody>
             </table>
 
         </div>
