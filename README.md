@@ -72,9 +72,22 @@ Example prompt:
 
 <img src="https://github.com/AneeshYadav2419/blog/blob/main/Screenshot%202025-11-05%20220121.png" alt="Logo" width="600">
 
-* ✅ Blog Reader Page
-* ✅ Dashboard & Editor
-* ✅ AI Content Writer
+* ✅ Dashboard
+* <img src="https://github.com/AneeshYadav2419/blog/blob/main/Screenshot 2025-11-05 220142.png" alt="Logo" width="600"> 
+
+* ✅ AI Content Writer and Add Blog
+* 
+* <img src="https://github.com/AneeshYadav2419/blog/blob/main/Screenshot 2025-11-05 220229.png" alt="Logo" width="600"> 
+
+* ✅ Blog Lists
+* 
+* <img src="https://github.com/AneeshYadav2419/blog/blob/main/Screenshot 2025-11-05 220249.png" alt="Logo" width="600"> 
+
+* ✅Comments
+* 
+* <img src="https://github.com/AneeshYadav2419/blog/blob/main/Screenshot 2025-11-05 220307.png" alt="Logo" width="600"> 
+
+
 
 ---
 
