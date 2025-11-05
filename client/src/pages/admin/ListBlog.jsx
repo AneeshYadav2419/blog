@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { blog_data } from '../../assets/assets';
-import BlogTableItem from '../../components/admin/BlogTableItem';
+import BlogTableItem from '../../components/admin/BlogTableItem.jsx';
+import { useAppContext } from '../../context/AppContext';
+import toast from 'react-hot-toast';
 
 const ListBlog = () => {
 
   const [blogs , setBlogs] = useState([]);
+  const {axios} = useAppContext()
 
   const fetchBlogs =  async () =>{
-    setBlogs(blog_data)
+   try {
+    const {data} = await axios.get('/api/admin/blogs')
+    if(data.success){
+      setBlogs(data.blogs)
+    }else{
+      toast.error(data.message)
+    }
+   } catch (error) {
+      toast.error(error.message)
+   }
   }
 
   useEffect(()=>{
@@ -33,7 +45,7 @@ const ListBlog = () => {
                 </thead>
                 <tbody>
                     {blogs.map((blog, index) => {
-                        return <BlogTableItem key={blog._id} blog={blog}
+                        return <BlogTableItem key={blog._id} blog={blog} 
                         fetchBlogs={fetchBlogs} index={index + 1} />
                     })}
                 </tbody>

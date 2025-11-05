@@ -5,10 +5,14 @@ import Navbar from '../components/Navbar'
 import Moment from 'moment'
 import Footer from '../components/Footer'
 import Loader from '../components/Loader'
+import { useAppContext } from '../context/AppContext'
+import toast from 'react-hot-toast'
 
 const Blog = () => {
 
   const {id} = useParams()
+  const {axios} = useAppContext()
+
   const [data, setData] = useState(null)
   const [comments, setComments] = useState([])
 
@@ -16,16 +20,42 @@ const Blog = () => {
   const [content, setContent] = useState('')
 
   const fetchBlogData = async () =>{
-   const data =  blog_data.find(item => item._id === id)
-   setData(data)
+
+    try {
+      const { data } = await axios.get(`/api/blog/${id}`)
+      data.success ? setData(data.blog) : toast.error(data.message)
+    } catch (error) {
+      toast.error(data.message)
+    }
   }
 
   const fetchComments = async () =>{
-    setComments(comments_data)
+    try {
+       const { data } = await axios.post('/api/blog/comments',{blogId: id})
+       if(data.success){
+        setComments(data.comments)
+       }else{
+        toast.error(data.comments);
+       }
+    } catch (error) {
+      toast.error(data.comments);
+    }
   }
 
   const addComment = async (e) =>{
     e.preventDefault();
+    try {
+       const { data } = await axios.post('/api/blog/add-comment',{blog: id, name, content});
+       if(data.success){
+        toast.success(data.message)
+        setName('')
+        setContent('')
+       }else{
+        toast.error(data.comments);
+       }
+    } catch (error) {
+      toast.error(data.comments);
+    }
   }
 
   useEffect(() =>{
@@ -45,6 +75,7 @@ const Blog = () => {
         <h2 className='my-5 max-w-lg truncate mx-auto'>{data.subTitle}</h2>
         <p className='inline-block py-1 px-4 rounded-full mb-6 border text-sm border-primary/35 bg-primary/5 font-medium text-primary'> Michael Brown</p>
                </div>
+               
        <div className='mx-5 max-w-5xl md:mx-auto my-10 mt-6 '>
         <img src={data.image} alt='' className='rounded-3xl mb-5'/>
 
