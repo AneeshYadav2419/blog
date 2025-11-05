@@ -70,6 +70,7 @@ Example prompt:
 
 * ✅ Home Page
 
+<img src="https://github.com/AneeshYadav2419/blog/blob/main/Screenshot%202025-11-05%20220121.png" alt="Logo" width="600">
 
 * ✅ Blog Reader Page
 * ✅ Dashboard & Editor
