@@ -106,8 +106,8 @@ project-root/
 
 ## 📦 Build & Deploy
 
-* 🌐 Frontend → Vercel / Netlify
-* 🛠️ Backend → Render / Railway / VPS
+* 🌐 Frontend → Vercel
+* 🛠️ Backend → Vercel
 * 🗄️ DB → MongoDB Atlas
 
 ---
